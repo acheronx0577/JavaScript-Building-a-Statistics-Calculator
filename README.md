@@ -22,7 +22,7 @@ This repository contains the complete portfolio of projects needed to demonstrat
 
 <img width="1231" height="993" alt="Screenshot 2025-10-29 144455" src="https://github.com/user-attachments/assets/31df95e9-fb38-46a3-9bf2-f5e083a9140b" />
 
-Live Demo: 
+Live Demo: https://acheronx0577.github.io/JavaScript-Building-a-Statistics-Calculator
 
 ---
 
