@@ -108,4 +108,5 @@ Potential enhancements:
 ## 📜 License
 
 This project is open-source under the **MIT License**.
+
 *Built with ❤️ through freeCodeCamp | Making statistics accessible, one calculation at a time*
