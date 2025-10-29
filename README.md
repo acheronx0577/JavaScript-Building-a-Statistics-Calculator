@@ -22,7 +22,7 @@ This repository contains the complete portfolio of projects needed to demonstrat
 
 <img width="1231" height="993" alt="Screenshot 2025-10-29 144455" src="https://github.com/user-attachments/assets/31df95e9-fb38-46a3-9bf2-f5e083a9140b" />
 
-Live Demo: https://acheronx0577.github.io/Statistics-Calculator
+Live Demo: 
 
 ---
 
@@ -108,13 +108,4 @@ Potential enhancements:
 ## 📜 License
 
 This project is open-source under the **MIT License**.
-
----
-
-## 🚀 About freeCodeCamp
-
-This project was built as part of freeCodeCamp's curriculum to help developers learn JavaScript through hands-on projects. freeCodeCamp is a donor-supported nonprofit organization that helps people learn to code for free.
-
----
-
 *Built with ❤️ through freeCodeCamp | Making statistics accessible, one calculation at a time*
