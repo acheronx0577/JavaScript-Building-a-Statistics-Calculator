@@ -20,7 +20,7 @@ This repository contains the complete portfolio of projects needed to demonstrat
 
 ## 📸 Application Preview
 
-<img width="715" height="809" alt="Statistics Calculator Screenshot" src="https://github.com/user-attachments/assets/97262308-2771-4254-84b6-a63ad5c42ce5" />
+<img width="1231" height="993" alt="Screenshot 2025-10-29 144455" src="https://github.com/user-attachments/assets/31df95e9-fb38-46a3-9bf2-f5e083a9140b" />
 
 Live Demo: https://acheronx0577.github.io/Statistics-Calculator
 
