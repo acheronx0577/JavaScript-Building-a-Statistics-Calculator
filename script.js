@@ -48,11 +48,14 @@ const getStandardDeviation = (array) => {
   return standardDeviation;
 }
 
+// Global variables for tracking
+let calculationsCount = 0;
+
 const calculate = () => {
   const value = document.querySelector("#numbers").value;
   
   if (!value.trim()) {
-    alert("Please enter some numbers!");
+    alert("ERROR: Please enter some numbers!");
     return;
   }
   
@@ -60,15 +63,23 @@ const calculate = () => {
   const numbers = array.map(el => Number(el)).filter(el => !isNaN(el));
   
   if (numbers.length === 0) {
-    alert("Please enter valid numbers!");
+    alert("ERROR: Please enter valid numbers!");
     return;
   }
 
-  // Add loading state
-  const button = document.querySelector("button");
-  const originalText = button.textContent;
-  button.textContent = "Calculating...";
+  // Update UI states
+  const button = document.querySelector(".terminal-btn.primary");
+  const outputStatus = document.querySelector("#output-status");
+  const globalStatus = document.querySelector("#global-status");
+  const dataPoints = document.querySelector("#data-points");
+  
+  const originalText = button.querySelector(".btn-text").textContent;
+  button.querySelector(".btn-text").textContent = "[CALCULATING...]";
   button.disabled = true;
+  outputStatus.textContent = "PROCESSING";
+  outputStatus.style.color = "var(--accent-warning)";
+  globalStatus.textContent = "CALCULATING";
+  dataPoints.textContent = numbers.length;
 
   // Simulate slight delay for better UX
   setTimeout(() => {
@@ -87,12 +98,23 @@ const calculate = () => {
       document.querySelector("#range").textContent = range.toFixed(2);
       document.querySelector("#variance").textContent = variance.toFixed(2);
       document.querySelector("#standardDeviation").textContent = standardDeviation.toFixed(2);
+
+      // Update counters and status
+      calculationsCount++;
+      document.querySelector("#calculations-count").textContent = calculationsCount;
+      outputStatus.textContent = "COMPLETED";
+      outputStatus.style.color = "var(--accent-success)";
+      globalStatus.textContent = "READY";
+      
     } catch (error) {
-      alert("An error occurred during calculation. Please check your input.");
+      alert("ERROR: An error occurred during calculation. Please check your input.");
       console.error(error);
+      outputStatus.textContent = "ERROR";
+      outputStatus.style.color = "var(--accent-error)";
+      globalStatus.textContent = "ERROR";
     } finally {
       // Reset button
-      button.textContent = originalText;
+      button.querySelector(".btn-text").textContent = originalText;
       button.disabled = false;
     }
   }, 500);
@@ -112,6 +134,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!this.value.trim()) {
       clearResults();
     }
+    document.querySelector("#data-points").textContent = 
+      this.value.split(/,\s*/g).filter(el => !isNaN(Number(el)) && el.trim() !== '').length;
   });
 });
 
@@ -120,4 +144,12 @@ function clearResults() {
   elements.forEach(selector => {
     document.querySelector(selector).textContent = '-';
   });
+  document.querySelector("#output-status").textContent = "READY";
+  document.querySelector("#output-status").style.color = "var(--accent-teal)";
 }
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector("#data-points").textContent = "0";
+  document.querySelector("#calculations-count").textContent = "0";
+});
